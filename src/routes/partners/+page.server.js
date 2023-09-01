@@ -23,7 +23,6 @@ export async function load() {
 export const actions = {
 	create: async ({ request }) => {
 		const data = await request.formData();
-		console.log(data);
 		const title = data.get('title');
 		const city = data.get('city');
 
@@ -32,7 +31,7 @@ export const actions = {
 				title,
 				city
 			});
-			throw redirect(307, '/partners');
+			throw redirect(303, '/partners');
 		} catch (error) {
 			return fail(422, {
 				title: data.get('title'),

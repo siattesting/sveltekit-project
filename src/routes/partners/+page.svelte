@@ -4,6 +4,7 @@
 	import NewPartnerform from "./NewPartnerform.svelte";
     import PartnerList from "./PartnerList.svelte";
     export let data
+    export let form
     let editing = false
 
 </script>
@@ -29,7 +30,7 @@
     
     {#if editing}  
     <div>
-        <NewPartnerform />
+        <NewPartnerform {form} />
     </div>
     {/if}
 

@@ -1,5 +1,5 @@
 import PouchDB from 'pouchdb';
-const DB = new PouchDB('sveltekit-project01');
+const DB = new PouchDB('sveltekit-project02');
 
 /**
  * @param {string} id
