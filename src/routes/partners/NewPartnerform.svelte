@@ -1,6 +1,7 @@
 <script>
 
 	import { enhance } from "$app/forms";
+  let editing = true
 
   /**
 	 * @type {{ error: any; title: any; city: any; }}
@@ -30,6 +31,7 @@
         <label for="city">City</label></p>
         <p>
             <button type="submit" class="w3-btn w3-blue">Save</button>
+            <button type="button" class="w3-btn w3-blue" on:click={() => (editing = false)}>Cancel</button>
         </p>
       </form>
     </div>

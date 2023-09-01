@@ -1,5 +1,5 @@
 import * as DB from '$lib/database/PouchDB.js';
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 
 export async function load() {
 	// const docs = await DB.listAllItems()
@@ -32,6 +32,7 @@ export const actions = {
 				title,
 				city
 			});
+			throw redirect(307, '/partners');
 		} catch (error) {
 			return fail(422, {
 				title: data.get('title'),
