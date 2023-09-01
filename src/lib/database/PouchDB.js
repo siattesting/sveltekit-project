@@ -1,3 +1,4 @@
+import PouchDB from 'pouchdb';
 const DB = new PouchDB('sveltekit-project01');
 
 /**
