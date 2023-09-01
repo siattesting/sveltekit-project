@@ -42,7 +42,7 @@ export async function createPartner(item) {
 }
 
 export async function getPartners() {
-	const { rows } = await DB.allDocs({ include_docs: true})
-	const results = rows.filter((row) => row.doc.type === 'partner')
-	const results.map(({ doc }) => doc)
+	const { rows } = await DB.allDocs({ include_docs: true });
+	const results = rows.filter((row) => row.doc.type === 'partner');
+	return results.map(({ doc }) => doc);
 }

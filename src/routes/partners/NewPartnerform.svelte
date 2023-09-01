@@ -13,7 +13,7 @@
         <h2>Input Form</h2>
       </div>
   
-      <form class="w3-container" method="post" use:enhance>
+      <form class="w3-container" method="post" use:enhance action="?/create">
         <p>
         <input class="w3-input" type="text" name="title">
         <label for="title">Title</label></p>
