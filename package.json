@@ -29,6 +29,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@ibm-cloud/cloudant": "^0.6.0",
 		"pouchdb": "^8.0.1"
 	}
 }
