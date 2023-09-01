@@ -27,10 +27,6 @@ export const actions = {
 		const title = data.get('title');
 		const city = data.get('city');
 
-		if (!title || !city) {
-			throw new Error();
-		}
-
 		try {
 			DB.createPartner({
 				title,
