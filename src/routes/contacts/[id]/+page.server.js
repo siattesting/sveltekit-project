@@ -1,39 +1,39 @@
 import * as DB from '$lib/database/PouchDB.js';
-import { error, redirect } from '@sveltejs/kit';
+import { error, fail, redirect } from '@sveltejs/kit';
 /** @type {import('./$types').PageServerLoad} */
-
+/** @type {import('./$types').PageServerLoad} */
 export async function load({ params }) {
-	const partner = await DB.readItem(params.id);
-	if (!partner) {
-		throw error(404, 'Partner not found');
+	const contact = await DB.readItem(params.id);
+	if (!contact) {
+		throw error(404, 'Contact not found');
 	}
 	return {
-		partner
+		contact
 	};
 }
 
 export const actions = {
 	update: async ({ request, params }) => {
 		const data = await request.formData();
-		const { partner } = await DB.readItem(params.id);
+		const { contact } = await DB.readItem(params.id);
 
 		try {
 			var doc = await DB.readItem(params.id);
 			doc.title = data.get('title');
-			doc.city = data.get('city');
+			doc.email = data.get('email');
 			doc.updated_at = new Date().toISOString();
 
-			const updatedItem = { ...doc, ...partner };
+			const updatedItem = { ...doc, ...contact };
 
 			await DB.updateItem(updatedItem);
 		} catch (error) {
 			console.log(error);
 			return fail(422, {
 				title: data.get('title'),
-				email: data.get('city'),
+				email: data.get('email'),
 				error: error.message
 			});
 		}
-		throw redirect(303, '/partners');
+		throw redirect(303, '/contacts');
 	}
 };

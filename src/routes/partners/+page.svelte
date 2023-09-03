@@ -2,8 +2,8 @@
 // @ts-nocheck
 
 	import NewPartnerform from "./NewPartnerform.svelte";
-    import PartnerList from "./PartnerList.svelte";
     export let data
+    $: ({ partners } = data)
     export let form
     let editing = false
 
@@ -11,7 +11,7 @@
 <div>
     <h1>Partners page</h1>
 
-    {#if data.partners.length < 1} <p>No partners to display</p> {/if}
+    {#if partners.length < 1} <p>No partners to display</p> {/if}
 
     {#if !editing}
 
@@ -25,6 +25,7 @@
                     </div>
             {/each}
     </div>
+
             
     {/if}
     

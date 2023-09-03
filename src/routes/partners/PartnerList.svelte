@@ -1,9 +1,14 @@
 <script>
-    export let data
+    // export let data
+    // $: ({ partners } = data)
+    /**
+	 * @type {any[]}
+	 */
+    let partners = []
 </script>
 
 <div>
-    {#each data.partners as partner (partner.title) }
+    {#each partners as partner (partner.title) }
             <div>
                 <h2>{partner.title}</h2>
                 <h4>{partner.city}</h4>
